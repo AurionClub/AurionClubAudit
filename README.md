@@ -1,6 +1,6 @@
 🧾 AurionClub Smart Contract Audit Explanation
-Overview
 
+Overview
 AurionClub is a decentralized investment smart contract deployed on the BNB Smart Chain (BEP-20) network.
 It is designed to automate passive income distribution through verified investment plans, referral rewards, and transparent profit mechanisms without admin control.
 
@@ -11,17 +11,11 @@ Compiler Version: Solidity ^0.8.30
 License: MIT
 
 🛡️ Security Architecture
-
 The contract implements several standard and security-oriented modules:
-
-IERC20 Interface: Enables interaction with BEP-20 tokens (USDT in this case).
-
-Ownable: Restricts administrative privileges only to the contract owner.
-
-ReentrancyGuard: Prevents reentrancy attacks during deposit and withdrawal operations.
-
-Non-upgradable Smart Contract: Ensures immutability after deployment.
-
+- IERC20 Interface: Enables interaction with BEP-20 tokens (USDT in this case).
+- Ownable: Restricts administrative privileges only to the contract owner.
+- ReentrancyGuard: Prevents reentrancy attacks during deposit and withdrawal operations.
+- Non-upgradable Smart Contract: Ensures immutability after deployment.
 These components ensure that no external party or admin can manipulate investor balances or ROI once the contract is deployed.
 
 💎 Core Functionalities
@@ -35,15 +29,15 @@ Each level has a unique percentage and minimum direct referral requirement.
 Unclaimed or ineligible referral bonuses are automatically classified as expired bonuses and stored for liquidity growth.
 
 3. Secure Withdrawals
-Users can withdraw only once every 24 hours.
-Withdrawals are subject to a small fee (5%) to support contract sustainability.
-The system includes a daily withdrawal cap to maintain liquidity equilibrium.
+- Users can withdraw only once every 24 hours.
+- Withdrawals are subject to a small fee (5%) to support contract sustainability.
+- The system includes a daily withdrawal cap to maintain liquidity equilibrium.
 
 4. Bonus Expiration
 Function: withdrawExpiredBonuses()
-Exclusively callable by the contract owner.
-Allows the withdrawal of expired referral bonuses to maintain liquidity for future participants.
-Every transaction emits a transparent event recorded on the blockchain.
+- Exclusively callable by the contract owner.
+- Allows the withdrawal of expired referral bonuses to maintain liquidity for future participants.
+- Every transaction emits a transparent event recorded on the blockchain.
 
 📊 Transparency & Data Tracking
 The contract provides multiple public view functions:
@@ -54,12 +48,11 @@ The contract provides multiple public view functions:
 These functions ensure complete traceability for both investors and auditors directly on-chain.
 
 ⚙️ Key Constants
-Parameter	Value	Description
-MIN_DEPOSIT	20 USDT	Minimum investment per transaction
-MIN_WITHDRAWAL	1 USDT	Minimum amount eligible for withdrawal
-DAILY_WITHDRAWAL_LIMIT	1000 USDT	Daily maximum withdrawal limit per user
-OWNER_FEE_PERCENT	10%	Owner fee for platform maintenance
-WITHDRAWAL_FEE_PERCENT 5%	Sustainable ecosystem fee
+- MIN_DEPOSIT	20 USDT
+- MIN_WITHDRAWAL 1 USDT
+- DAILY_WITHDRAWAL_LIMIT 1000 USDT
+- OWNER_FEE_PERCENT	10%
+- WITHDRAWAL_FEE_PERCENT 5%
 
 📂 Events & Logging
 Each transaction is recorded with detailed logs for transparency:
